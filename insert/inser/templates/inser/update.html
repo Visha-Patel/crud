@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Just update data</h1>
+    <style type="text/css">
+		form{
+
+			background-color:black;
+			margin-left: 240px;
+			width: 600px;
+			margin-top: 40px;
+			padding: 60px;
+			color: white;
+			border-radius: 40px;
+
+		}
+		form header{
+				color: blue;
+				font-weight: bold;
+				margin-bottom: 30px;
+				font-size: 25px;
+				margin-top: 0px;
+				margin-left: 120px;
+		}
+		form input{
+			margin-left: 100px;
+		}
+		#main{
+			display: flex;
+		}
+		#fdiv{
+			width: 170px;
+		}
+		form input{
+			width: 210px;
+			padding: 8px;
+		}
+		button{
+			width: 400px;
+			margin-left: 100px;
+			margin-top: 30px;
+			background-color: blue;
+		}
+		
+	</style>
+</head>
+
+<body bgcolor="smogblack ">
+	<form action="{% url 'update' data.id %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+			<a href="{% url 'display' %}">Home</a>
+		    <a href="{% url 'insert' %}">insert</a>
+		<header>Welcome for the Registration</header>
+			
+		<div id="main">
+			
+			<div id="fdiv">
+					<label>Enter Name:</label><br><br><br>				
+					<label>Enter Email</label><br><br><br>
+					<label>Enter Contact</label><br><br><br>
+					<label>Rollno</label><br><br><br>
+					<label>Class</label><br><br><br>
+					<label>Course</label><br><br>
+				</div>
+				<div>
+	
+					<input type="text" name="nme" value="{{data.name}}"><br><br>
+					<input type="email" name="eml" value="{{data.email}}"><br><br>
+					<input type="text" name="cnt" value="{{data.contact}}"><br><br>
+					<input type="text" name="rln" value="{{data.rollno}}"><br><br>
+					<input type="text" name="cls" value="{{data.clas}}"><br><br>
+					<input type="text" name="crs" value="{{data.course}}"><br><br>
+					<img src="{{data.img.url}}" width="100px" height="100px" alt="" srcset="">
+                    <input type="file" id="img" name="img" >
+	
+				</div>
+			</div>
+<button type="submit" value="submit">Submit</button>
+</body>
+</html>

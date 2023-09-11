@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Display</title>
+</head>
+<body bgcolor="yellow">
+	<table align="center" border="4px" bgcolor="red">
+			<a href="{% url 'display' %}">Home</a> |
+		    <a href="{% url 'insert' %}">insert</a> |
+    		<a href="{% url 'display' %}">display</a><br>
+		<tr><thead>Inserted data</thead></tr>
+		<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Contact</th>
+		<th>Rollno</th>
+		<th>Class</th>
+		<th>Course</th>
+		<th>Image</th>
+		</tr>
+		{% for i in data %}
+		<tr>
+			<td>{{i.name}}</td>
+			<td>{{i.email}}</td>
+			<td>{{i.contact}}</td>
+			<td>{{i.rollno}}</td>
+			<td>{{i.clas}}</td>
+			<td>{{i.course}}</td>
+			<td><img src="{{i.img.url}}" width="100px" height="100px"></td>
+			<td><a href="{% url 'dele' i.id %}">Delete</a></td>
+			<td><a href="{% url 'update' i.id %}">Update</a></td>
+
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>
